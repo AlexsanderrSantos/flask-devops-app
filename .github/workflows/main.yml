@@ -1,19 +1,19 @@
 name: CI - Build Docker Image
 
-on: 
-  push: 
+on:
+  push:
     branches: [main] #roda quando fizer push na branch main
 
-jobs: 
+jobs:
   build:
     runs-on: ubuntu-latest #máquina onde roda a ação
 
-    steps: 
-      -name: Clonar o repositório
-       uses: actions/checkout@v3
+    steps:
+      - name: Clonar o repositório
+        uses: actions/checkout@v3
 
-      -name: Instalar Docker
-       uses: dpcler/setup-buildx-action@v3
+      - name: Instalar Docker
+        uses: docker/setup-buildx-action@v3
 
-      -name: Build da imagem Docker
-       run: docker build -t flask-devops-app .
+      - name: Build da imagem Docker
+        run: docker build -t flask-devops-app .
