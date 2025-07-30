@@ -1,14 +1,17 @@
-#Use an official python image
-FROM python:3.9-slim
+#Usa imagem oficial do python 3.10 slim(estável e leve)
+FROM python:3.10-slim
 
-#Set work directory
+#Define a pasta de trabalho dentro do container
 WORKDIR /app
 
-#Copy app files
+#Copia Todos os Arquivos do projeto pro container
 COPY . .
 
-#Install Flask
-RUN pip install Flask
+# Instala as dependências com base no arquivo requirements
+RUN pip install --no-cache-dir -r requirement.txt
 
-#Run the app
+#Expõe a porta usada pelo Flask
+EXPOSE 5000
+
+#Comando final: Iniciar o app
 CMD ["python", "app.py"]
