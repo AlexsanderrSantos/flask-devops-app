@@ -10,11 +10,10 @@ jobs:
 
     steps: 
       -name: Clonar o repositório
-      uses: actions/checkout@v3
+       uses: actions/checkout@v3
 
       -name: Instalar Docker
-      uses: dpcler/setup-buildx-action@v3
+       uses: dpcler/setup-buildx-action@v3
 
       -name: Build da imagem Docker
-      run: docker build -t flask-devops-app .
-      
+       run: docker build -t flask-devops-app .
